@@ -1,0 +1,22 @@
+<h1>Account Statement</h1>
+
+<table class="table table-bordered table-striped">
+  <head>
+    <th>Date</th>
+    <th>Description</th>
+    <th>Withdrawals</th>
+    <th>Deposits</th>
+    <th>Balance</th>
+  </head>
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.created_at.strftime("%d/%m/%Y %I:%M %p") %></td>
+        <td><%= transaction.description %></td>
+        <td><%= transaction.withdrawls&.round(2) %></td>
+        <td><%= transaction.deposits&.round(2) %></td>
+        <td><%= transaction.balance&.round(2) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

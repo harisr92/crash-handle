@@ -1,0 +1,6 @@
+<div class="col-sm-6 col-md-6">
+  <%= form_for(@transaction, method: 'POST') do |form| %>
+    <%= render 'form', form: form %>
+    <%= form.submit('Submit', class: 'btn btn-primary') %>
+  <% end %>
+</div>
