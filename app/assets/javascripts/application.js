@@ -12,4 +12,6 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery.min
+//= require jquery.mCustomScrollbar.concat.min
 //= require_tree .

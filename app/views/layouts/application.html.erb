@@ -9,6 +9,51 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <!-- Sidebar Holder -->
+      <nav id="sidebar">
+        <div class="sidebar-header">
+          <h3>Account Management</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+          <li class="active">
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="#">Transaction</a>
+          </li>
+          <li>
+            <a href="#">Statement</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Page Content Holder -->
+      <div id="content">
+
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+
+            <div class="navbar-header">
+              <button type="button" id="sidebarCollapse" class="navbar-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </nav>
+        <%= yield %>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+          $('#sidebar').toggleClass('active');
+          $(this).toggleClass('active');
+        });
+      });
+     </script>
   </body>
 </html>
