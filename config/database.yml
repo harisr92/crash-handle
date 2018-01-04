@@ -80,6 +80,5 @@ test:
 #
 production:
   <<: *default
-  database: bank_acc_management_production
-  username: bank_acc_management
-  password: <%= ENV['BANK_ACC_MANAGEMENT_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  pool: 5
