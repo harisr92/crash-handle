@@ -17,14 +17,20 @@
         </div>
 
         <ul class="list-unstyled components">
-          <li class="active">
+          <li class="<%= 'active' if request.path == root_path %>">
             <a href="/">Home</a>
           </li>
-          <li>
-            <a href="#">Transaction</a>
+          <li class="<%= 'active' if request.path == new_transaction_path %>">
+            <a href="<%= new_transaction_path %>">Transaction</a>
           </li>
+          <li class="<%= 'active' if request.path == transactions_path %>">
+            <a href="<%= transactions_path %>">Statement</a>
+          </li>
+        </ul>
+
+        <ul class="list-unstyled CTAs">
           <li>
-            <a href="#">Statement</a>
+            <%= link_to 'Sign Out', destroy_user_session_path, method: 'DELETE' %>
           </li>
         </ul>
       </nav>
@@ -42,6 +48,18 @@
                 <span></span>
               </button>
             </div>
+
+            <% if notice %>
+              <div class="alert alert-success alert-dismissable fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <%= notice %>
+              </div>
+            <% elsif alert %>
+              <div class="alert alert-warning alert-dismissable fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <%= alert %>
+              </div>
+            <% end %>
           </div>
         </nav>
         <%= yield %>
