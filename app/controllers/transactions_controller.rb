@@ -17,7 +17,7 @@ class TransactionsController < ApplicationController
     if @transaction.update(transaction_params)
       flash[:notice] = 'Updated the Transaction'
     else
-      flash[:warn] = 'Update failed'
+      flash[:alert] = 'Update failed'
     end
     redirect_to transactions_path
   end
@@ -27,7 +27,7 @@ class TransactionsController < ApplicationController
     if transaction.save
       flash[:notice] = 'Transaction Complete'
     else
-      flash[:warn] = 'Transaction Failed'
+      flash[:alert] = 'Transaction Failed'
     end
     redirect_to transactions_path
   end
@@ -36,7 +36,7 @@ class TransactionsController < ApplicationController
     if transaction.save
       flash[:notice] = 'Transaction deleted'
     else
-      flash[:warn] = 'Could Not Delete'
+      flash[:alert] = 'Could Not Delete'
     end
     redirect_to transactions_path
   end
