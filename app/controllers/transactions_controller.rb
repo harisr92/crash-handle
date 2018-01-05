@@ -2,7 +2,7 @@ class TransactionsController < ApplicationController
   before_action :find_transaction
 
   def index
-    @transactions = Transaction.user(current_user.id).order(created_at: :desc)
+    @transactions = current_user.transactions.order(created_at: :desc)
   end
 
   def show() end
@@ -23,7 +23,7 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    transaction = Transaction.new(transaction_params)
+    transaction = current_user.transactions.new(transaction_params)
     if transaction.save
       flash[:notice] = 'Transaction Complete'
     else
