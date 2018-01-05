@@ -8,10 +8,13 @@ class ApplicationController < ActionController::Base
       value: request.path,
       expires: 1.year.from_now
     }
+    lv = LastVisit.where(user_id: current_user.id).first_or_initialize
+    lv.path = request.path
+    lv.save
   end
 
   def after_sign_in_path_for(_resource)
-    cookies[:path]
+    current_user.last_visit.try(:path) || cookies[:path] || '/'
   end
 
   def after_sign_out_path_for(_resource)
@@ -19,6 +22,9 @@ class ApplicationController < ActionController::Base
       value: '/',
       expires: 1.year.from_now
     }
+    lv = LastVisit.where(user_id: current_user.id).first_or_initialize
+    lv.path = '/'
+    lv.save
     '/users/sign_in'
   end
 end

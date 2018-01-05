@@ -1,24 +1,24 @@
-# README
+# Models
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Transaction
+  To store sample transaction made by the user
 
-Things you may want to cover:
+## LastVisit
+  To save last visited page. Skipping all devise links
 
-* Ruby version
+## User
+  For user management
 
-* System dependencies
+# Gems Used
 
-* Configuration
+## Devise
+  For user management
 
-* Database creation
+## pg
+  For postgresql database
 
-* Database initialization
+## puma
+  App server
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Turbolinks
+  Easy page navigation
